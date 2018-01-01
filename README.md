@@ -24,4 +24,7 @@ It is as easy as just assigning `anyAssert` to a variable, i.e. `body=anyAssert(
 2. `getValuesFromResponse(body,property)`
 
 ## Example output
-![alt text](image here "")
+### Success
+![output](http://acostanza.com/wp-content/uploads/2017/12/example-output.tiff "")
+
+### Failure
