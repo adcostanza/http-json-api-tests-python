@@ -14,9 +14,11 @@ anyAssert(type,url,description, data=[], tests=[], headers={}, statusExpected=20
 The following are tests that I have built so far, but you may build others just as easily following the same class with check method as seen in `TestServer.py`:
 
 1. `hasProperty(self,property,should)`
-2. `hasTrueProperty(self,property,should)`
-3. `hasFalseProperty(self,property,should)`
+2. `hasTrueProperty(self,property)`
+3. `hasFalseProperty(self,property)`
 4. `hasPropertyEqualTo(self,property,equals,should)`
+
+In all cases, `should` is a `string` that should contain language such as `have a token` for the error messages. `hasTrueProperty` and `hasFalseProperty` do not require a `should` statement as the intention is self evident.
 
 ### Reusing values from response
 It is as easy as just assigning `anyAssert` to a variable, i.e. `body=anyAssert(...)` and then you may use either of these methods or parse the returned JSON (or null response) yourself:
@@ -30,5 +32,5 @@ Below is an example of all tests passing:
 
 
 ### Failure
-Even better is when we catch failure, such as that the API shows that the user is unable to change the admins password but it turns out that when I try to login as as the admin with the new password it has indeed been changed. Simply prefixing a `return` to the `res.status(403)` ended up fixing this error so the code execution was halted after authorization failure.
+Even better is when we catch failure, such as that the API shows that the user is to do admin functions but they actually are not stopped even though a 403 status code is sent.  Simply prefixing a `return` to the `res.status(403)` ended up fixing this error so the code execution was halted after authorization failure. Imagine if this sort of bug wasn't caught, that is why automated testing is so important.
 ![fail](https://i.imgur.com/L6a303y.png "")
