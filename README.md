@@ -25,6 +25,10 @@ It is as easy as just assigning `anyAssert` to a variable, i.e. `body=anyAssert(
 
 ## Example output
 ### Success
-![output](http://acostanza.com/wp-content/uploads/2017/12/example-output.tiff "")
+Below is an example of all tests passing:
+![output](https://i.imgur.com/cBKnpTJ.png "")
+
 
 ### Failure
+Even better is when we catch failure, such as that the API shows that the user is unable to change the admins password but it turns out that when I try to login as as the admin with the new password it has indeed been changed. Simply prefixing a `return` to the `res.status(403)` ended up fixing this error so the code execution was halted after authorization failure.
+![fail](https://i.imgur.com/L6a303y.png "")
